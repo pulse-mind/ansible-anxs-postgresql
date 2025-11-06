@@ -838,8 +838,22 @@ postgresql_install_repository: true
 # APT settings
 postgresql_apt_key_id: "ACCC4CF8"
 postgresql_apt_key_url: "https://www.postgresql.org/media/keys/ACCC4CF8.asc"
-postgresql_apt_repository: "deb http://apt.postgresql.org/pub/repos/apt/ {{ ansible_distribution_release }}-pgdg main {{ postgresql_version }}"
+# postgresql_apt_keyring: "/usr/share/postgresql-common/pgdg/apt.postgresql.org.gpg"
+
+# repsoitory base
+postgresql_apt_repo_base: "https://apt.postgresql.org/pub/repos/apt"
+postgresql_apt_repo_components: "main"
+
+# (codename + -pgdg)
+postgresql_apt_suite: "{{ ansible_facts['distribution_release'] | default('') }}-pgdg"
+
+# Ligne de dépôt finale (utilise les variables ci-dessus)
+postgresql_apt_repository: >-
+  deb [signed-by={{ postgresql_apt_keyring }}]
+  {{ postgresql_apt_repo_base }} {{ postgresql_apt_suite }} {{ postgresql_apt_repo_components }}
+
 # Pin-Priority of PGDG repository
+postgresql_apt_pin_enabled: true
 postgresql_apt_pin_priority: 500
 
 # YUM repository locations
