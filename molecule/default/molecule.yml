@@ -7,7 +7,7 @@ lint: |
   set -e
 #  yamllint .
 #  ansible-lint
-platforms:  
+platforms:
   - name: postgresql-13
     image: "geerlingguy/docker-${MOLECULE_DISTRO:-debian11}-ansible:latest"
     volumes:
@@ -57,7 +57,7 @@ provisioner:
     prepare:  ${MOLECULE_PLAYBOOK:-../../tests/prepare.yml}
     converge: ${MOLECULE_PLAYBOOK:-../../tests/playbook.yml}
   inventory:
-    host_vars:      
+    host_vars:
       postgresql-13:
         postgresql_version: 13
       postgresql-14:
