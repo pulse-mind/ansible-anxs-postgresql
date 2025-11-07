@@ -14,7 +14,6 @@ The default distribution is ubuntu2204. You can override th with setting the env
 * fedora40
 * debian11
 * debian12
-* ubuntu2004
 * ubuntu2204
 * ubuntu2404
 
@@ -47,7 +46,6 @@ $ ls -1 tests/ | grep vars
 vars.Debian.11.yml
 vars.Debian.12.yml
 vars.Fedora.40.yml
-vars.Ubuntu.20.yml
 vars.Ubuntu.22.yml
 vars.Ubuntu.24.yml
 vars.yml

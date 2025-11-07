@@ -1,7 +1,6 @@
 ---
 
 postgresql_versions:
-  - 12
   - 13
   - 14
   - 15
